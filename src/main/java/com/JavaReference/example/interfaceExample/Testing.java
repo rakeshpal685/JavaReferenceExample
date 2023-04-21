@@ -1,4 +1,4 @@
-package com.JavaReference.example.Interface;
+package com.JavaReference.example.interfaceExample;
 
 public class Testing implements Interf1, Interf2 {
 
