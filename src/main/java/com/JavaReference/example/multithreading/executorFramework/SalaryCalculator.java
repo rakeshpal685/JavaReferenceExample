@@ -1,5 +1,6 @@
 package com.JavaReference.example.multithreading.executorFramework;
 
+
 public class SalaryCalculator implements Runnable {
 
   Employee employee;
@@ -8,9 +9,10 @@ public class SalaryCalculator implements Runnable {
     this.employee = employee;
   }
 
+
   @Override
   public void run() {
-    employee.calculateSalary();
+employee.calculateSalary();
     System.out.println(Thread.currentThread().getName());
   }
 }
