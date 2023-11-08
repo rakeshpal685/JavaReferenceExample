@@ -12,9 +12,18 @@ public class Testing {
     employeeList.add(new Employee(1, "shyam", 40, "male", "it", 2013, 300.50));
     employeeList.add(new Employee(6, "gita", 60, "female", "cs", 2012, 100.00));
     employeeList.add(new Employee(4, "ali", 50, "male", "it", 2014, 200.50));
+    employeeList.add(new Employee(4, "ali", 50, "male", "it", 2014, 200.50));
     employeeList.add(new Employee(2, "patli", 10, "female", "cse", 2015, 3100.50));
     employeeList.add(new Employee(5, "ramu", 19, "male", "cs", 2017, 400.50));
+    employeeList.add(new Employee(5, "ramu", 19, "male", "cs", 2017, 400.50));
     employeeList.add(new Employee(5, "anju", 18, "female", "cs", 2017, 900.50));
+
+    //Show the duplicate employees
+    Set<Employee> uniqueEmployee=new HashSet<>();
+    //We know that set.add will return true if the value is not already present and false if the value is present.Hence we will negate
+    //so that if the value is not present then it will return true
+    Set<Employee> duplicateEmployee = employeeList.stream().filter(e -> !uniqueEmployee.add(e)).collect(Collectors.toSet());
+    System.out.println(duplicateEmployee);
 
     // Number of male and female employees
     Map<String, Long> collect =
@@ -99,7 +108,7 @@ public class Testing {
         employeeList.stream()
             .filter(n -> n.getDepartment().equals("cs") && n.getGender().equals("male"))
             .min(((o1, o2) -> o1.getAge() - o2.getAge()))
-            .map(n -> n.getName())
+            .map(Employee::getName)
             .get();
     System.out.println(s2);
   }
