@@ -1,7 +1,5 @@
 package com.JavaReference.example.lambdaWithFuctionalInterface;
 
-import java.sql.SQLOutput;
-
 public class Testing implements Interf1 {
 
   public static void main(String[] args) {
