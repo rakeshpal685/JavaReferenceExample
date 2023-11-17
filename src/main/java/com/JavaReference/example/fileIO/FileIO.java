@@ -30,7 +30,7 @@ public class FileIO {
     //First get the path of the file
     Path path = Path.of("E:\\output.txt");
 
-    //Write to the file, the last argument can be anything
+    //Write to the file, the last argument can be anything depending upon our type of operation
     Files.writeString(path, "Writing using java 11", StandardOpenOption.APPEND);
 
     //Reading from the file
