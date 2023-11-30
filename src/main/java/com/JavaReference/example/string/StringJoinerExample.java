@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 
-public class StringExample {
+public class StringJoinerExample {
 
   public static void main(String[] args) {
     List<String> names = new ArrayList<>();
