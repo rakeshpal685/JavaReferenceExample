@@ -1,10 +1,8 @@
 package com.JavaReference.example.streams;
 
+
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Testing {
 
@@ -227,13 +225,28 @@ public class Testing {
             .collect(Collectors.toMap(e -> e.getKey(), v -> v.getValue()));
     // System.out.println(collect12);
 
+    // Sort the map according to the values and get the output as map
+    LinkedHashMap<Integer, com.JavaReference.example.comparableVscomparator.Employee> collect14 =
+        employeeMap.entrySet().stream()
+            .sorted((e1, e2) -> e1.getValue().getName().compareTo(e2.getValue().getName()))
+            .collect(
+                Collectors.toMap(
+                    Map.Entry::getKey,
+                    Map.Entry::getValue,
+                    (oldValue, newValue) -> oldValue,
+                    LinkedHashMap::new));
+
+    System.out.println(collect14);
+
     // JAVA 9
-    // It will take all the elements till the condition is true and neglect everything after it first encounter the false, something like limit
+    // It will take all the elements till the condition is true and neglect everything after it
+    // first encounter the false, something like limit
     // employeeList.stream().takeWhile(e -> e.getId() == 6).forEach(System.out::println);
 
-    // It will take all the elements after once it encountered the condition to be true, something like skip
+    // It will take all the elements after once it encountered the condition to be true, something
+    // like skip
     // employeeList.stream().dropWhile(e -> e.getId() == 50).forEach(System.out::println);
 
-    Stream.iterate(1, i -> i <= 1000, i -> i * 10).forEach(System.out::println);
+    // Stream.iterate(1, i -> i <= 1000, i -> i * 10).forEach(System.out::println);
   }
 }

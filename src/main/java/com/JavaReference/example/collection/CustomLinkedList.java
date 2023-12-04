@@ -124,9 +124,17 @@ public class CustomLinkedList {
     return null;
   }
 
+  /*This is an inner class, because each object is stored in a node form int the linked list, where every node contains at least 2 things, 1- the object
+  that is to be stored and, 2- the address/reference of the next node, Here I have named my nodes as CustomNode*/
   class CustomNode {
+
+    //The object that is to be stored in the node
     Object data;
+
+    //The address/reference of the next node
     CustomNode nextAddress;
+
+    //This is taken, incase I want to store the object at any specific index.
     int customNodeIndex;
 
     CustomNode(Object obj, int customNodeIndex) {
