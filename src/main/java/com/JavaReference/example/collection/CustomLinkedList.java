@@ -106,7 +106,7 @@ public class CustomLinkedList {
       throw new RuntimeException("index not found");
     } else {
       if (head == null) {
-        throw new RuntimeException("Linked List Empty");
+        throw new RuntimeException("Linked ListStream Empty");
       } else {
         CustomNode temp = head;
         while (temp.nextAddress != null) {
