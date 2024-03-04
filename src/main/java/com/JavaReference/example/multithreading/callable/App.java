@@ -17,8 +17,8 @@ public class App {
     employeeList.add(new Employee("Jacob", 6, 10, 800));
 
     List<Future<Employee>> futureList = new ArrayList<>();
-    try (ExecutorService executorService = Executors.newFixedThreadPool(3)) {
-
+    try  {
+      ExecutorService executorService = Executors.newFixedThreadPool(3);
       for (Employee e : employeeList) {
 
         /*Here inside every iteration a new thread will be created for the employee object
@@ -43,9 +43,11 @@ public class App {
         });*/
       }
       executorService.shutdown();
+    } catch (Exception e) {
+        throw new RuntimeException(e);
     }
 
-    for (Future<Employee> e : futureList) {
+      for (Future<Employee> e : futureList) {
       System.out.println(e.get().getSalary());
     }
   }

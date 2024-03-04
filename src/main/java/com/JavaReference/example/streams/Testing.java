@@ -28,6 +28,9 @@ public class Testing {
         employeeList.stream().filter(e -> !uniqueEmployee.add(e)).collect(Collectors.toSet());
     // System.out.println(duplicateEmployee);
 
+
+
+
     // Sum of the age of all the employees
     double sum = employeeList.stream().mapToInt(n -> n.getAge()).sum();
     // OR
@@ -39,20 +42,28 @@ public class Testing {
     // System.out.println(reduce.get());
     // System.out.println(sum);
 
+
+
     // Number of male and female employees
     Map<String, Long> collect =
         employeeList.stream()
             .collect(Collectors.groupingBy(n -> n.getGender(), Collectors.counting()));
     // System.out.println(collect);
 
+
+
     // print the name of all the departments
     Set<String> collect1 =
         employeeList.stream().map(n -> n.getDepartment()).collect(Collectors.toSet());
     // System.out.println(collect1);
 
+
+
     // average age of all the employees
     double average = employeeList.stream().mapToDouble(n -> n.getAge()).average().getAsDouble();
     // System.out.println(average);
+
+
 
     // average age of male and female employees
     Map<String, Double> collect2 =
@@ -61,6 +72,8 @@ public class Testing {
                 Collectors.groupingBy(
                     n -> n.getGender(), Collectors.averagingInt(n -> n.getAge())));
     // System.out.println(collect2);
+
+
 
     // get the name of the highest paid employee (we can use the combination of limit() and skip()
     // too
@@ -71,6 +84,8 @@ public class Testing {
             .findFirst()
             .get();
     // System.out.println(s);
+
+
 
     // get the details of the highest paid employee
     Employee em =
@@ -97,6 +112,8 @@ public class Testing {
             .collect(Collectors.toList());
     // System.out.println(collect4);
 
+
+
     ////////////////////////////
     // count the number of employees in each department.groupingBy will take 2 parameters, one is
     // function and the other is
@@ -113,6 +130,8 @@ public class Testing {
     // entries.stream().forEach((e) -> System.out.println(e.getKey()+"''''''''"+e.getValue()));
     ///////////////////////////////////////////////
 
+
+
     // Total Average salary
     Double collect10 =
         employeeList.stream().collect(Collectors.averagingDouble(e -> e.getSalary()));
@@ -125,6 +144,8 @@ public class Testing {
             .getAverage();
     // System.out.println(collect11);
 
+
+
     // Average salary of each department
     Map<String, Double> collect6 =
         employeeList.stream()
@@ -135,6 +156,8 @@ public class Testing {
     for (Map.Entry<String, Double> e : entries1) {
       // System.out.println(e.getKey()+" "+e.getValue());
     }
+
+
 
     // get the details of the youngest male employee in the cs department
     String s1 =
@@ -155,6 +178,8 @@ public class Testing {
             .get();
     // System.out.println(s2);
 
+
+
     // Flat map
     //    Map will return a stream of objects present in a collection,
     //    flatmap will return a stream of collection present in collections
@@ -168,6 +193,8 @@ public class Testing {
     Set<Integer> collect7 =
         combinedList.stream().flatMap(l -> l.stream()).collect(Collectors.toSet());
     // System.out.println(collect7);
+
+
 
     // Here inside flatmap, after I get individual streams I can apply normal streams methods on
     // each stream.
@@ -203,20 +230,28 @@ public class Testing {
     .sorted(Map.Entry.comparingByKey())
     .forEach((k) -> System.out.println(k));*/
 
+
+
     // Reverse sort based on keys
     /*    employeeMap.entrySet().stream()
     .sorted(Map.Entry.comparingByKey(Collections.reverseOrder()))
     .forEach(System.out::println);*/
+
+
 
     // Sorting based on value
     /* employeeMap.entrySet().stream()
     .sorted(Map.Entry.comparingByValue())
     .forEach((v) -> System.out.println(v));*/
 
+
+
     // Reverse Sorting based on value
     /* employeeMap.entrySet().stream()
     .sorted(Map.Entry.comparingByValue(Collections.reverseOrder()))
     .forEach((v) -> System.out.println(v));*/
+
+
 
     // Sort the map according to key and get the output as map
     Map<Integer, com.JavaReference.example.comparableVscomparator.Employee> collect12 =
@@ -224,6 +259,8 @@ public class Testing {
             .sorted((e1, e2) -> e1.getKey() - e2.getKey())
             .collect(Collectors.toMap(e -> e.getKey(), v -> v.getValue()));
     // System.out.println(collect12);
+
+
 
     // Sort the map according to the values and get the output as map
     LinkedHashMap<Integer, com.JavaReference.example.comparableVscomparator.Employee> collect14 =

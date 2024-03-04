@@ -19,8 +19,8 @@ public class App {
 
     //    Here I am using try with resources to auto close the Executor service, which have 3
     // threads in the thread pool.
-    try (ExecutorService executorService = Executors.newFixedThreadPool(3)) {
-
+    try  {
+      ExecutorService executorService = Executors.newFixedThreadPool(3);
       //      Here I am looping through each employee and passing them to the thread pool, so that
       // each thread can call the run method
       for (Employee e : employeeList) {
@@ -50,9 +50,11 @@ public class App {
             });
       }
       executorService.shutdown();
+    } catch (Exception e) {
+        throw new RuntimeException(e);
     }
 
-    for (Employee e : employeeList) {
+      for (Employee e : employeeList) {
       System.out.println(e.getSalary());
     }
   }
